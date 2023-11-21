@@ -32,7 +32,7 @@ function addList() {
 }
 
 function removeList() {
-  if (list.length !== 0) {
+  if (list.listItems.length !== 0) {
     list.listItems = [];
     const ul = document.querySelector('.item-list');
     ul.innerHTML = '';
