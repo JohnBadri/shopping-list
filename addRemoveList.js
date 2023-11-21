@@ -14,10 +14,11 @@ export function addRemoveList() {
 function addList() {
   const input = document.querySelector('.input-item');
   const ul = document.querySelector('.item-list');
-  if (ul.textContent === 'List is empty!') {
-    ul.textContent = '';
-  }
+
   if (input.value) {
+    if (ul.textContent === 'List is empty!') {
+      ul.textContent = '';
+    }
     list.listItems.push(input.value.toLowerCase());
     ul.appendChild(
       createElement(

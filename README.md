@@ -1,5 +1,7 @@
 # Shopping List Project
 
+Link - https://johnbadri.github.io/shopping-list/
+
 This project is a simple shopping list application that allows users to add, remove, and filter items.
 
 ## Features
