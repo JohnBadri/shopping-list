@@ -1,6 +1,5 @@
 import { createElement } from './createElement.js';
-
-let list = [];
+import { list } from './main.js';
 
 export function addRemoveList() {
   const buttonAdd = document.querySelector('.button-add');
@@ -19,17 +18,22 @@ function addList() {
     ul.textContent = '';
   }
   if (input.value) {
-    list.push(input.value);
-    ul.appendChild(createElement('li', input.value, 'list')).appendChild(
-      createElement('i', '✖', 'icon')
-    );
+    list.listItems.push(input.value.toLowerCase());
+    ul.appendChild(
+      createElement(
+        'li',
+        input.value.charAt(0).toUpperCase() +
+          input.value.slice(1).toLowerCase(),
+        'list'
+      )
+    ).appendChild(createElement('i', '✖', 'icon'));
     input.value = '';
   }
 }
 
 function removeList() {
   if (list.length !== 0) {
-    list = [];
+    list.listItems = [];
     const ul = document.querySelector('.item-list');
     ul.innerHTML = '';
     ul.textContent = 'List is empty!';
@@ -45,6 +49,6 @@ function removeItem(event) {
       parentElement = parentElement.previousElementSibling;
     }
     event.target.parentElement.remove();
-    list = list.filter((item, index) => index !== count);
+    list.listItems = list.listItems.filter((item, index) => index !== count);
   }
 }
